@@ -29,5 +29,14 @@ export let Article = function (articleTitle, articleDescription, articleAuthor, 
         article.appendChild(date);
 
         containerArticle.appendChild(article);
+
+        /* display one article in onePage */
+        let displayOneArticle = document.createElement('div');
+        displayOneArticle.id = 'newDisplay';
+
+        containerArticle.addEventListener('click' ,()=> {
+            displayOneArticle.style.position = 'relative';
+
+        })
     }
 }
