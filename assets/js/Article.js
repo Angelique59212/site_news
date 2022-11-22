@@ -10,8 +10,11 @@ export let Article = function (articleTitle, articleDescription, articleAuthor, 
         const date = document.createElement('span');
         const image = document.createElement('img');
         article.id = 'article';
+        title.id = 'title';
+        resume.id = 'resume';
         author.id = 'author';
         date.id = 'date';
+        image.id = 'image';
 
         title.innerHTML = articleTitle;
         resume.innerHTML = articleDescription;
@@ -21,9 +24,9 @@ export let Article = function (articleTitle, articleDescription, articleAuthor, 
 
         article.appendChild(title);
         article.appendChild(resume);
+        article.appendChild(image);
         article.appendChild(author);
         article.appendChild(date);
-        article.appendChild(image);
 
         containerArticle.appendChild(article);
     }

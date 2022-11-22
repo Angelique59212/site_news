@@ -11,7 +11,7 @@ html {
 }
 
 header {
-  width: 100%;
+  width: 100vw;
   height: 9vh;
   display: flex;
   justify-content: space-between;
@@ -21,7 +21,7 @@ header {
 .dark {
   background-color: darken(vars.$back-color, 75%);
   color: lighten(vars.$text-color, 50%);
-  font-size: 1.5rem;
+  font-size: 1.8rem;
 }
 
 body {
@@ -42,6 +42,38 @@ button {
   padding: 1rem;
   font-size: 1.9rem;
 }
+
+/* article */
+#article {
+  width: 50vw;
+  border: #{vars.$border}px solid #9b9696;
+  border-radius: 0.8rem;
+  margin: 2rem auto;
+  padding: 2rem;
+}
+
+#resume {
+  margin: 1rem;
+}
+
+#image {
+  width: 27vw;
+  margin-left: 20rem;
+}
+
+#date {
+  margin: 0.8rem;
+  display: block;
+}
+
+#author {
+  @extend #date;
+  font-weight: bold;
+  font-size: 1.8rem;
+}
+
+
+
 
 
 
