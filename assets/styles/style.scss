@@ -1,4 +1,5 @@
-@use "modules/vars";
+@use "./modules/vars";
+@import "./modules/_breakpoints";
 
 * {
   margin: 0;
@@ -16,6 +17,10 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @include large {
+    justify-content: space-around;
+  }
 }
 
 .dark {
@@ -34,13 +39,19 @@ h1 {
   margin: 1rem;
 }
 
+header h1 {
+  @include extra-small {
+    font-size: 1.8rem;
+  }
+}
+
 #button {
   width: 5vw;
 }
 
 button {
-  padding: 1rem;
-  font-size: 1.9rem;
+  padding: 0.2rem;
+  font-size: 1.5rem;
 }
 
 /* article */
@@ -50,6 +61,16 @@ button {
   border-radius: 0.8rem;
   margin: 2rem auto;
   padding: 2rem;
+
+  @include small-down {
+    width: 80vw;
+  }
+}
+
+#article h1 {
+  @include extra-small {
+    font-size: 1.5rem;
+  }
 }
 
 #resume {
@@ -58,7 +79,6 @@ button {
 
 #image {
   width: 27vw;
-  margin-left: 20rem;
 }
 
 #date {
@@ -71,6 +91,8 @@ button {
   font-weight: bold;
   font-size: 1.8rem;
 }
+
+
 
 
 
