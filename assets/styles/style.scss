@@ -79,6 +79,9 @@ button {
 
 .image {
   width: 27vw;
+  @include extra-small {
+    width: 50vw;
+  }
 }
 
 .date {
@@ -95,6 +98,7 @@ button {
 .hidden {
   display: none;
 }
+
 
 
 

@@ -11,6 +11,7 @@ export let Article = function (articleTitle, articleDescription, articleAuthor, 
         const author = document.createElement('span');
         const date = document.createElement('span');
         const image = document.createElement('img');
+
         article.className = 'article';
         title.className = 'title';
         resume.className = 'resume';
@@ -29,6 +30,7 @@ export let Article = function (articleTitle, articleDescription, articleAuthor, 
         article.appendChild(author);
         article.appendChild(date);
 
+
         /* display one article in onePage */
         let displayOneArticle = document.createElement('div');
         displayOneArticle.id = 'newDisplay';
@@ -36,28 +38,36 @@ export let Article = function (articleTitle, articleDescription, articleAuthor, 
 
         article.addEventListener('click' ,()=> {
             let articles = document.querySelectorAll('article');
+            title.style.fontSize = '2.5rem';
+            article.style.padding = '2rem';
+
             articles.forEach((currentElement)=> {
-                currentElement.classList += ' ' + 'hidden';
+                currentElement.classList.add('hidden');
             })
 
             let closeButton = document.createElement('button');
             closeButton.id = 'close';
             closeButton.innerHTML = 'Close';
+
             closeButton.addEventListener('click', ()=> {
                 let hiddenArticle = document.querySelectorAll('.hidden');
                 hiddenArticle.forEach((art)=> {
                     art.className = 'article';
+                    for(let j = 0 ; j <  displayOneArticle.children.length; j++){
+                        displayOneArticle.children[j].remove();
+                    }
                     displayOneArticle.remove();
                 })
             })
+
             displayOneArticle.appendChild(title);
             displayOneArticle.appendChild(resume);
             displayOneArticle.appendChild(image);
             displayOneArticle.appendChild(author);
             displayOneArticle.appendChild(date);
             displayOneArticle.appendChild(closeButton);
+        });
             containerArticle.appendChild(displayOneArticle);
-        })
-        containerArticle.appendChild(article);
+            containerArticle.appendChild(article);
     }
 }
