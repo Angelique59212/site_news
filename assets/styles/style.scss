@@ -55,7 +55,7 @@ button {
 }
 
 /* article */
-#article {
+.article {
   width: 50vw;
   border: #{vars.$border}px solid #9b9696;
   border-radius: 0.8rem;
@@ -67,29 +67,33 @@ button {
   }
 }
 
-#article h1 {
+.article h1 {
   @include extra-small {
     font-size: 1.5rem;
   }
 }
 
-#resume {
+.resume {
   margin: 1rem;
 }
 
-#image {
+.image {
   width: 27vw;
 }
 
-#date {
+.date {
   margin: 0.8rem;
   display: block;
 }
 
-#author {
-  @extend #date;
+.author {
+  @extend .date;
   font-weight: bold;
   font-size: 1.8rem;
+}
+
+.hidden {
+  display: none;
 }
 
 

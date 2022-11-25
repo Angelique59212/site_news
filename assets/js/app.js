@@ -10,7 +10,7 @@ let Theme = new Dark();
 Theme.display();
 
 let ApiArticle = new Api(requestUrl);
-const data = ApiArticle.getApiData().then(res => {
+export const data = ApiArticle.getApiData().then(res => {
     res.articles.map(artData => {
         const article = new Article(artData.title, artData.description, artData.author, artData.publishedAt, artData.urlToImage);
         article.hydrate();

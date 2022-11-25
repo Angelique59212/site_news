@@ -1,3 +1,5 @@
+import {data} from "./app";
+
 let containerArticle = document.getElementById('container');
 
 export let Article = function (articleTitle, articleDescription, articleAuthor, articleDate, articleImage) {
@@ -9,12 +11,12 @@ export let Article = function (articleTitle, articleDescription, articleAuthor, 
         const author = document.createElement('span');
         const date = document.createElement('span');
         const image = document.createElement('img');
-        article.id = 'article';
-        title.id = 'title';
-        resume.id = 'resume';
-        author.id = 'author';
-        date.id = 'date';
-        image.id = 'image';
+        article.className = 'article';
+        title.className = 'title';
+        resume.className = 'resume';
+        author.className = 'author';
+        date.className = 'date';
+        image.className = 'image';
 
         title.innerHTML = articleTitle;
         resume.innerHTML = articleDescription;
@@ -23,20 +25,39 @@ export let Article = function (articleTitle, articleDescription, articleAuthor, 
         image.src = articleImage;
 
         article.appendChild(title);
-        article.appendChild(resume);
         article.appendChild(image);
         article.appendChild(author);
         article.appendChild(date);
 
-        containerArticle.appendChild(article);
-
         /* display one article in onePage */
         let displayOneArticle = document.createElement('div');
         displayOneArticle.id = 'newDisplay';
+        displayOneArticle.style.width = '100%';
 
-        containerArticle.addEventListener('click' ,()=> {
-            displayOneArticle.style.position = 'relative';
+        article.addEventListener('click' ,()=> {
+            let articles = document.querySelectorAll('article');
+            articles.forEach((currentElement)=> {
+                currentElement.classList += ' ' + 'hidden';
+            })
 
+            let closeButton = document.createElement('button');
+            closeButton.id = 'close';
+            closeButton.innerHTML = 'Close';
+            closeButton.addEventListener('click', ()=> {
+                let hiddenArticle = document.querySelectorAll('.hidden');
+                hiddenArticle.forEach((art)=> {
+                    art.className = 'article';
+                    displayOneArticle.remove();
+                })
+            })
+            displayOneArticle.appendChild(title);
+            displayOneArticle.appendChild(resume);
+            displayOneArticle.appendChild(image);
+            displayOneArticle.appendChild(author);
+            displayOneArticle.appendChild(date);
+            displayOneArticle.appendChild(closeButton);
+            containerArticle.appendChild(displayOneArticle);
         })
+        containerArticle.appendChild(article);
     }
 }
